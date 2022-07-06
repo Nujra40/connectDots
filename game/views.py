@@ -50,7 +50,7 @@ def index(request):
     if username not in users: users.append(username)
     if (len(users) >= 3):
         return HttpResponse(f"{users[0]} and {users[1]} are playing, wait till they complete!")
-    return render(request, 'game\index.html', context={
+    return render(request, 'game/index.html', context={
         "greetUser": username,
         "activePlayers": users
     })
@@ -63,7 +63,6 @@ def game(request, me, opponent):
         if (users[cur_play] == me):
             s1, s2 = request.POST['hidden'].split(',')
             TYPE = request.POST['type']
-            print(TYPE)
             extras += 'radPressed(false, '+s1+');'
             extras += 'radPressed(false, '+s2+');'
             recentEdge = {s1, s2}
@@ -84,9 +83,9 @@ def game(request, me, opponent):
 def logout(request, me):
     global extras, users, scores
     try:
-        users.remove(me)
         extras = 'init();'
         scores = []
+        users.remove(me)
     except:
         pass
     return HttpResponse("Logged Out, You can now close this window")

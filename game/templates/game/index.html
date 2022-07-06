@@ -9,7 +9,7 @@
         Hello {{ greetUser }}!
         {% for p in activePlayers %}
             {% if p != greetUser %}
-                <a href="{% url 'game:game' p greetUser %}">{{ p }}</a>
+                <a href="{% url 'game:game' greetUser p %}">{{ p }}</a>
             {% endif %}
         {% endfor %}
     </body>
