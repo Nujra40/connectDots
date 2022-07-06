@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Game!!
+        </title>
+    </head>
+    <body>
+        Hello {{ greetUser }}!
+        {% for p in activePlayers %}
+            {% if p != greetUser %}
+                <a href="{% url 'game:game' p greetUser %}">{{ p }}</a>
+            {% endif %}
+        {% endfor %}
+    </body>
+</html>

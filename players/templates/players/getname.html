@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Player Profile
+        </title>
+    </head>
+    <body>
+        <form action="{% url 'game:index' %}" method="GET">
+            <input type="text" name = "username" placeholder="Enter your name">
+            <input type="submit">
+        </form>
+    </body>
+</html>
